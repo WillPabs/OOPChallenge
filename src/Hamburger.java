@@ -3,9 +3,7 @@ public class Hamburger {
     private String name;
     private String rollType;
     private String meat;
-    protected double basePrice;
-    protected double totalPrice;
-    protected double toppingPrice;
+    private double price;
 
     private String addition1Name;
     private double addition1Price;
@@ -24,7 +22,7 @@ public class Hamburger {
         this.name = name;
         this.rollType = rollType;
         this.meat = meat;
-        this.basePrice = price;
+        this.price = price;
     }
 
     public void addHamburgerAddition1(String name, double price) {
@@ -47,13 +45,27 @@ public class Hamburger {
         this.addition4Price = price;
     }
 
+    public double itemizeHamburger() {
+        double hamburgerPrice = this.price;
+        System.out.println(this.name + " hamburger on a " + this.rollType + " roll, " +
+                "with " + this.meat + " price is " + this.price);
+        if(this.addition1Name != null) {
+            hamburgerPrice += this.addition1Price;
+            System.out.println("Added " + this.addition1Name + " for an extra " + this.addition1Price);
+        }
+        if(this.addition2Name != null) {
+            hamburgerPrice += this.addition2Price;
+            System.out.println("Added " + this.addition2Name + " for an extra " + this.addition2Price);
+        }
+        if(this.addition3Name != null) {
+            hamburgerPrice += this.addition3Price;
+            System.out.println("Added " + this.addition3Name + " for an extra " + this.addition3Price);
+        }
+        if(this.addition4Name != null) {
+            hamburgerPrice += this.addition4Price;
+            System.out.println("Added " + this.addition4Name + " for an extra " + this.addition4Price);
+        }
 
-
-    public String getHamburger() {
-        return "Hamburger";
-    }
-
-    public double getTotalPrice() {
-        return basePrice;
+        return hamburgerPrice;
     }
 }
